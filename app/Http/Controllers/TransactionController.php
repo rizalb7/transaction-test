@@ -21,7 +21,7 @@ class TransactionController extends Controller
         ->column('price', sortable:true, as: fn ($price) => "Rp" . str_replace(",",".", number_format($price)))
         ->column('quantity', sortable:true)
         ->column('payment_amount', sortable:true, as: fn ($price) => "Rp" . str_replace(",",".", number_format($price)))
-        ->withGlobalSearch(columns: ['name', 'price', 'quantity', 'payment_amount'])
+        ->withGlobalSearch(columns: ['reference_no', 'price', 'quantity', 'payment_amount'])
         ->paginate(8);
 
         return view('transactions.index', compact('transactions'));
